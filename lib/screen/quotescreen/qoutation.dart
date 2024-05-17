@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:ttfc_app/utility/constant.dart';
 import 'package:ttfc_app/widget/appbar.dart';
 import 'package:ttfc_app/widget/product.dart';
 
-class FavoriteScreen extends StatelessWidget {
-  const FavoriteScreen({super.key});
+class QuotationScreen extends StatelessWidget {
+  const QuotationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarWidget.ThireAppbar(context, 'Favorite'),
+      backgroundColor: backgroudAppColor,
+      appBar: AppbarWidget.ThireAppbar(context, 'Quotation'),
       body: buildBoby(context),
     );
   }
@@ -22,7 +24,7 @@ class FavoriteScreen extends StatelessWidget {
             scrollDirection: Axis.vertical,
             itemCount: 10,
             itemBuilder: (context, index) {
-              return menuWidget.favoProductWidget(context);
+              return menuWidget.quoteProductWidget(context, 'YARIS CROSS HEV','39900','TOYOTA','2024','15-05-2024',image: 'images/croos.png');
             },
           ),
         ],

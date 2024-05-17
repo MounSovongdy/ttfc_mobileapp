@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:ttfc_app/screen/homescreen/home.dart';
+import 'package:ttfc_app/screen/loginscreen/login.dart';
+import 'package:ttfc_app/screen/loginscreen/otp.dart';
 import 'package:ttfc_app/screen/startupscreen/startup.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main() async {
   runApp(const MyApp());
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -15,17 +24,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-
-      ),
+      theme: ThemeData(),
       home: const StartupScreen(),
-      // initialRoute: '/',
-      // routes: {
-      //   '/': (context) => StartupScreen(),
-      //   '/second': (context) => HomeScreen(),
-      // },
     );
   }
-
-
 }
