@@ -11,6 +11,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  //final FirebaseAuth _auth = FirebaseAuth.instance;
   final TextEditingController _phoneController = TextEditingController();
 
   @override
@@ -24,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Container(
+        SizedBox(
           width: 200,
           height: 200,
           child: Image.asset('images/logo.png'),
@@ -51,9 +52,11 @@ class _LoginScreenState extends State<LoginScreen> {
               labelText: "Phone Number",
               prefixText: '+855 ',
               // Adjust as needed for locale
-              hintText: "Enter your phone number",
+              hintText: "xx xxx xxx",
               labelStyle: const TextStyle(
                 fontSize: fontText,
+                fontWeight: FontWeight.bold,
+                color: bgColor,
               ),
               floatingLabelBehavior: FloatingLabelBehavior.auto,
               border: OutlineInputBorder(

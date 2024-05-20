@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:ttfc_app/screen/homescreen/home.dart';
-import 'package:ttfc_app/screen/loginscreen/login.dart';
-import 'package:ttfc_app/screen/loginscreen/otp.dart';
 import 'package:ttfc_app/screen/startupscreen/startup.dart';
 import 'package:firebase_core/firebase_core.dart';
+
 
 import 'firebase_options.dart';
 
 void main() async {
   runApp(const MyApp());
 
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
