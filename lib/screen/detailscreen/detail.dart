@@ -8,6 +8,7 @@ class DetailScreen extends StatefulWidget {
   final String carName;
   final String carPrice;
   final String carBrand;
+  final String carYear;
   final String carImg;
 
   const DetailScreen({
@@ -15,6 +16,7 @@ class DetailScreen extends StatefulWidget {
     required this.carName,
     required this.carPrice,
     required this.carBrand,
+    required this.carYear,
     required this.carImg,
   });
 
@@ -89,6 +91,17 @@ class _DetailScreenState extends State<DetailScreen> {
                     children: [
                       Text(
                         widget.carBrand,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: fontDiscription,
+                          color: blackColor.withOpacity(0.3),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        widget.carYear,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: fontDiscription,

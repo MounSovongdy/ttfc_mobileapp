@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ttfc_app/screen/detailscreen/detail.dart';
 import 'package:ttfc_app/widget/appbar.dart';
-import 'package:ttfc_app/widget/bottombar.dart';
 import 'package:ttfc_app/widget/product.dart';
 import 'package:ttfc_app/widget/slider.dart';
 
@@ -10,18 +9,34 @@ import '../../utility/constant.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  final listCategoryName = ["TOYOTA", "LEXUS"];
-  final listCategoryImg = ["images/toyota.png", "images/lexus.png"];
+  final listCategoryName = [
+    "TOYOTA",
+    "LEXUS",
+    "TOYOTA",
+    "LEXUS",
+    "TOYOTA",
+    "LEXUS"
+  ];
+  final listCategoryImg = [
+    "images/toyota.png",
+    "images/lexus.png",
+    "images/toyota.png",
+    "images/lexus.png",
+    "images/toyota.png",
+    "images/lexus.png"
+  ];
 
   final listSUVName = ["YARIS CROSS", "YARIS CROSS HEV"];
   final listSUVImg = ["images/croos.png", "images/croos1.png"];
   final listPrice = ["37900", "39900"];
   final listBrand = ["TOYOTA", "TOYOTA"];
+  final listYear = ["2024", "2023"];
 
   final listPickupName = ["HILUX REVO", "YARIS CROSS HEV"];
   final listPickupImg = ["images/car_pickup.png", "images/car_pickup1.png"];
   final listPrice1 = ["39900", "40000"];
   final listBrand1 = ["TOYOTA", "TOYOTA"];
+  final listYear1 = ["2024", "2024"];
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +73,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 120.0,
+            height: 130.0,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -98,6 +113,7 @@ class HomeScreen extends StatelessWidget {
                   listSUVName[index],
                   listPrice[index],
                   listBrand[index],
+                  listYear[index],
                   image: listSUVImg[index],
                   onTap: () {
                     Navigator.push(
@@ -107,6 +123,7 @@ class HomeScreen extends StatelessWidget {
                           carName: listSUVName[index],
                           carPrice: listPrice[index],
                           carBrand: listBrand[index],
+                          carYear: listYear[index],
                           carImg: listSUVImg[index],
                         ),
                       ),
@@ -142,6 +159,7 @@ class HomeScreen extends StatelessWidget {
                   listPickupName[index],
                   listPrice1[index],
                   listBrand1[index],
+                  listYear1[index],
                   image: listPickupImg[index],
                   onTap: () {
                     Navigator.push(
@@ -151,6 +169,7 @@ class HomeScreen extends StatelessWidget {
                           carName: listPickupName[index],
                           carPrice: listPrice1[index],
                           carBrand: listBrand1[index],
+                          carYear: listYear1[index],
                           carImg: listPickupImg[index],
                         ),
                       ),

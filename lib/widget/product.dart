@@ -5,23 +5,45 @@ import 'package:ttfc_app/utility/constant.dart';
 
 class menuWidget {
   static Widget menuCategoryWidget(
-    String txt,
+    String txtName,
     String image,
   ) {
-    return Padding(
+    return Container(
       padding: const EdgeInsets.all(defaultPadding),
-      child: Container(
-        padding: const EdgeInsets.all(defaultPadding),
-        child: Column(
-          children: [
-            Image.asset(
-              image,
-              width: 60.0,
-              height: 60.0,
+      child: Column(
+        children: [
+          InkWell(
+            child: Container(
+              width: 90,
+              height: 80,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(defaultCircular),
+                border: Border.all(
+                  width: 1,
+                  color: bgColor,
+                ),
+                color: whiteColor,
+              ),
+              child: Center(
+                child: SizedBox(
+                  width: 70,
+                  height: 60,
+                  child: Image.asset(image),
+                ),
+              ),
             ),
-            Text(txt),
-          ],
-        ),
+            onTap: (){},
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Text(
+            txtName,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -30,7 +52,8 @@ class menuWidget {
     BuildContext context,
     String txtModel,
     String txtPrice,
-    String txtBrand, {
+    String txtBrand,
+      String txtYear,{
     Color? backgroundColor = whiteColor,
     required String image,
     required onTap,
@@ -52,7 +75,7 @@ class menuWidget {
                 height: 160.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(defaultCircular),
-                  color: secondGrayColor,
+                  color: secondGrayColor.withOpacity(0.4),
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage(image),
@@ -91,12 +114,12 @@ class menuWidget {
                           const SizedBox(
                             width: 5,
                           ),
-                          const Text(
+                          Text(
                             'USD',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: fontDiscription,
-                              color: secondGrayColor,
+                              color: blackColor.withOpacity(0.5),
                             ),
                           ),
                         ],
@@ -105,10 +128,19 @@ class menuWidget {
                         children: [
                           Text(
                             txtBrand,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: fontDiscription,
-                              color: secondGrayColor,
+                              color: blackColor.withOpacity(0.5),
+                            ),
+                          ),
+                          const SizedBox(width: 5,),
+                          Text(
+                            txtYear,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: fontDiscription,
+                              color: blackColor.withOpacity(0.5),
                             ),
                           ),
                         ],
@@ -140,9 +172,8 @@ class menuWidget {
     String txtModel,
     String txtPrice,
     String txtBrand,
-      String txtYear,
-      String dateSub,
-    {
+    String txtYear,
+    String dateSub, {
     required String image,
   }) {
     return Padding(
