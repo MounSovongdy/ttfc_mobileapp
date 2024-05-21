@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ttfc_app/utility/constant.dart';
+import 'package:ttfc_app/style/constant.dart';
 
-class SettingWidget {
+class AdditionalWidget {
   static Widget widget1(
     String txtName, {
     required onTap,
@@ -19,7 +19,7 @@ class SettingWidget {
                 width: 40,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(defaultPadding),
-                  color: bgColor,
+                  color: mainColor,
                 ),
                 child: icon,
               ),
@@ -85,7 +85,7 @@ class SettingWidget {
                 width: 40,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(defaultPadding),
-                  color: bgColor,
+                  color: mainColor,
                 ),
                 child: icon,
               ),

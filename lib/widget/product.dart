@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:ttfc_app/utility/constant.dart';
+import 'package:ttfc_app/style/constant.dart';
 
-class menuWidget {
+class MenuWidget {
   static Widget menuCategoryWidget(
     String txtName,
     String image,
@@ -20,7 +18,7 @@ class menuWidget {
                 borderRadius: BorderRadius.circular(defaultCircular),
                 border: Border.all(
                   width: 1,
-                  color: bgColor,
+                  color: mainColor,
                 ),
                 color: whiteColor,
               ),
@@ -108,7 +106,7 @@ class menuWidget {
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: fontText,
-                              color: bgColor,
+                              color: mainColor,
                             ),
                           ),
                           const SizedBox(
@@ -155,7 +153,7 @@ class menuWidget {
                 child: IconButton(
                   icon: const Icon(
                     Icons.favorite_rounded,
-                    color: bgColor,
+                    color: mainColor,
                   ),
                   onPressed: () {},
                 ),
@@ -308,7 +306,7 @@ class menuWidget {
                   bottomLeft: Radius.circular(defaultCircular),
                   topRight: Radius.circular(defaultPadding),
                 ),
-                color: bgColor,
+                color: mainColor,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -348,7 +346,7 @@ class menuWidget {
                 ),
                 child: const Icon(
                   Icons.edit_document,
-                  color: bgColor,
+                  color: mainColor,
                   size: 18,
                 ),
               ),

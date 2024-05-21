@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ttfc_app/utility/constant.dart';
+import 'package:ttfc_app/style/constant.dart';
 
 class ButtonWidget {
-  static Widget SubmitButton(
+  static Widget submitButton(
     String txtName, {
     required onTap,
   }) {
@@ -13,7 +12,7 @@ class ButtonWidget {
         height: 40.0,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(defaultCircular),
-          color: bgColor.withOpacity(0.8),
+          color: mainColor.withOpacity(0.8),
         ),
         child: Center(
           child: Text(
@@ -29,10 +28,10 @@ class ButtonWidget {
     );
   }
 
-  static Widget SubmitButton1(
+  static Widget submitButton1(
     String txtName, {
     required onTap,
-    Color? backgroundColor = bgColor,
+    Color? backgroundColor = mainColor,
     Color? textColor = whiteColor,
     icon,
   }) {

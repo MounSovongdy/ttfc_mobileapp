@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ttfc_app/utility/constant.dart';
+import 'package:ttfc_app/style/constant.dart';
 
 class AppbarWidget {
-  static AppBar MainAppbar() {
+  static AppBar mainAppbar() {
     return AppBar(
       automaticallyImplyLeading: false,
       backgroundColor: backgroudAppColor,
@@ -19,14 +19,14 @@ class AppbarWidget {
             icon: const Icon(
               Icons.notifications,
             ),
-            color: bgColor,
+            color: mainColor,
           )
         ],
       ),
     );
   }
 
-  static AppBar SecondAppbar(BuildContext context) {
+  static AppBar secondAppbar(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
       leading: IconButton(
@@ -36,7 +36,7 @@ class AppbarWidget {
         icon: const Icon(
           Icons.arrow_back_ios,
         ),
-        color: bgColor,
+        color: mainColor,
       ),
       title: Row(
         children: [
@@ -46,7 +46,7 @@ class AppbarWidget {
             height: 30.0,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
-              color: bgColor,
+              color: mainColor,
             ),
             child: Center(
               child: Image.asset('images/profile.jpeg'),
@@ -58,7 +58,7 @@ class AppbarWidget {
     );
   }
 
-  static AppBar ThireAppbar(
+  static AppBar additionalAppbar(
     BuildContext context,
     String txtLable,
   ) {
@@ -70,7 +70,7 @@ class AppbarWidget {
           style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: fontTitle,
-            color: bgColor,
+            color: mainColor,
           ),
         ),
       ),

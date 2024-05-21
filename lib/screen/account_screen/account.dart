@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:ttfc_app/utility/constant.dart';
+import 'package:ttfc_app/style/constant.dart';
 import 'package:ttfc_app/widget/appbar.dart';
 import 'package:ttfc_app/widget/button.dart';
-import 'package:ttfc_app/widget/somewidget.dart';
+import 'package:ttfc_app/widget/additionalwidget.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -12,7 +12,7 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroudAppColor,
-      appBar: AppbarWidget.ThireAppbar(context, 'Profile'),
+      appBar: AppbarWidget.additionalAppbar(context, 'Profile'),
       body: buildBoby(context),
     );
   }
@@ -85,7 +85,7 @@ class AccountScreen extends StatelessWidget {
                   IconButton(
                     onPressed: () {},
                     icon: const Icon(Icons.arrow_forward_ios_rounded),
-                    color: bgColor,
+                    color: mainColor,
                   ),
                 ],
               ),
@@ -101,7 +101,7 @@ class AccountScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  SettingWidget.widget1(
+                  AdditionalWidget.widget1(
                     'Change Password',
                     icon: const Icon(
                       Icons.password_rounded,
@@ -109,7 +109,7 @@ class AccountScreen extends StatelessWidget {
                     ),
                     onTap: () {},
                   ),
-                  SettingWidget.widget1(
+                  AdditionalWidget.widget1(
                     'Languages',
                     icon: const Icon(
                       Icons.language_rounded,
@@ -117,7 +117,7 @@ class AccountScreen extends StatelessWidget {
                     ),
                     onTap: () {},
                   ),
-                  SettingWidget.widget2(
+                  AdditionalWidget.widget2(
                     'Favorite',
                     icon: const Icon(
                       Icons.favorite_rounded,
@@ -139,7 +139,7 @@ class AccountScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  SettingWidget.widget1(
+                  AdditionalWidget.widget1(
                     'Term & condition',
                     icon: const Icon(
                       Icons.gavel_rounded,
@@ -147,7 +147,7 @@ class AccountScreen extends StatelessWidget {
                     ),
                     onTap: () {},
                   ),
-                  SettingWidget.widget1(
+                  AdditionalWidget.widget1(
                     'FAQ',
                     icon: const Icon(
                       Icons.question_answer_rounded,
@@ -155,7 +155,7 @@ class AccountScreen extends StatelessWidget {
                     ),
                     onTap: () {},
                   ),
-                  SettingWidget.widget2(
+                  AdditionalWidget.widget2(
                     'About Me',
                     icon: const Icon(
                       Icons.info_rounded,
@@ -172,14 +172,14 @@ class AccountScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(defaultPadding),
-            child: ButtonWidget.SubmitButton1(
+            child: ButtonWidget.submitButton1(
               icon: Icon(
                 Icons.logout_rounded,
                 size: 20,
-                color: bgColor.withOpacity(0.8),
+                color: mainColor.withOpacity(0.8),
               ),
               'Log Out',
-              textColor: bgColor.withOpacity(0.8),
+              textColor: mainColor.withOpacity(0.8),
               backgroundColor: whiteColor,
               onTap: () => exit(0),
             ),

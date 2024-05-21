@@ -10,6 +10,6 @@ class SearchScreen extends StatelessWidget {
     );
   }
   Widget buildBoby (context) {
-    return Center(child: Icon(Icons.search, size: 64.0, color: Colors.teal),);
+    return const Center(child: Icon(Icons.search, size: 64.0, color: Colors.teal),);
   }
 }

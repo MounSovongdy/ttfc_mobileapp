@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ttfc_app/screen/accountscreen/account.dart';
-import 'package:ttfc_app/screen/homescreen/home.dart';
-import 'package:ttfc_app/screen/quotescreen/qoutation.dart';
-import 'package:ttfc_app/screen/searchscreen/search.dart';
-import 'package:ttfc_app/utility/constant.dart';
+import 'package:ttfc_app/screen/account_screen/account.dart';
+import 'package:ttfc_app/screen/home_screen/home.dart';
+import 'package:ttfc_app/screen/quote_screen/qoutation.dart';
+import 'package:ttfc_app/screen/search_screen/search.dart';
+import 'package:ttfc_app/style/constant.dart';
 
 class BottomNavigationBarExample extends StatefulWidget {
   const BottomNavigationBarExample({super.key});
@@ -33,7 +33,7 @@ class _BottomNavigationBarExampleState
     assert(kTabPages.length == kBottomNavBarItems.length);
     final bottomNavBar = BottomNavigationBar(
       backgroundColor: backgroudAppColor,
-      selectedItemColor: bgColor,
+      selectedItemColor: mainColor,
       selectedLabelStyle: const TextStyle(
         fontSize: fontDiscription,
         fontWeight: FontWeight.bold

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ttfc_app/utility/constant.dart';
+import 'package:ttfc_app/style/constant.dart';
 import 'package:ttfc_app/widget/appbar.dart';
 import 'package:ttfc_app/widget/product.dart';
 
@@ -10,7 +10,7 @@ class QuotationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroudAppColor,
-      appBar: AppbarWidget.ThireAppbar(context, 'Quotation'),
+      appBar: AppbarWidget.additionalAppbar(context, 'Quotation'),
       body: buildBoby(context),
     );
   }
@@ -24,7 +24,7 @@ class QuotationScreen extends StatelessWidget {
             scrollDirection: Axis.vertical,
             itemCount: 10,
             itemBuilder: (context, index) {
-              return menuWidget.quoteProductWidget(context, 'YARIS CROSS HEV','39900','TOYOTA','2024','15-05-2024',image: 'images/croos.png');
+              return MenuWidget.quoteProductWidget(context, 'YARIS CROSS HEV','39900','TOYOTA','2024','15-05-2024',image: 'images/croos.png');
             },
           ),
         ],

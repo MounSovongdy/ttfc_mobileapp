@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ttfc_app/utility/constant.dart';
+import 'package:ttfc_app/style/constant.dart';
 import 'package:ttfc_app/widget/bottomNavigate.dart';
 import 'package:ttfc_app/widget/button.dart';
 import 'package:pinput/pinput.dart';
@@ -58,13 +58,13 @@ class _OTPScreenState extends State<OTPScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
-                    color: bgColor,
+                    color: mainColor,
                   ),
                 ),
                 textStyle: const TextStyle(
                   fontSize: fontText,
                   fontWeight: FontWeight.bold,
-                  color: bgColor,
+                  color: mainColor,
                 ),
               ),
               onSubmitted: (value) {
@@ -74,10 +74,10 @@ class _OTPScreenState extends State<OTPScreen> {
               },
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: defaultPadding * 4),
           Padding(
             padding: const EdgeInsets.all(defaultPadding * 2),
-            child: ButtonWidget.SubmitButton1(
+            child: ButtonWidget.submitButton1(
               icon: const Icon(
                 Icons.verified_rounded,
                 size: 20,
@@ -110,7 +110,7 @@ class _OTPScreenState extends State<OTPScreen> {
               style: TextStyle(
                 fontSize: fontDiscription,
                 fontWeight: FontWeight.bold,
-                color: bgColor,
+                color: mainColor,
               ),
             ),
           ),

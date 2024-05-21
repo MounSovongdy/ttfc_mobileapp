@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ttfc_app/screen/startupscreen/startup.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:ttfc_app/screen/startup_screen/startup.dart';
 
 
 import 'firebase_options.dart';

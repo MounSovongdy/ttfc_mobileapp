@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ttfc_app/screen/loginscreen/login.dart';
+import 'package:ttfc_app/screen/login_screen/login.dart';
 
 class StartupScreen extends StatefulWidget {
   const StartupScreen({super.key});

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ttfc_app/screen/detailscreen/detail.dart';
+import 'package:ttfc_app/screen/detail_screen/detail.dart';
+import 'package:ttfc_app/style/constant.dart';
 import 'package:ttfc_app/widget/appbar.dart';
 import 'package:ttfc_app/widget/product.dart';
 import 'package:ttfc_app/widget/slider.dart';
-
-import '../../utility/constant.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -42,7 +41,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroudAppColor,
-      appBar: AppbarWidget.MainAppbar(),
+      appBar: AppbarWidget.mainAppbar(),
       body: buildBody(context),
     );
   }
@@ -80,7 +79,7 @@ class HomeScreen extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               itemCount: listCategoryName.length,
               itemBuilder: (context, index) {
-                return menuWidget.menuCategoryWidget(
+                return MenuWidget.menuCategoryWidget(
                   listCategoryName[index],
                   listCategoryImg[index],
                 );
@@ -108,7 +107,7 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: listSUVName.length,
               itemBuilder: (context, index) {
-                return menuWidget.menuProductWidget(
+                return MenuWidget.menuProductWidget(
                   context,
                   listSUVName[index],
                   listPrice[index],
@@ -154,7 +153,7 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: listPickupName.length,
               itemBuilder: (context, index) {
-                return menuWidget.menuProductWidget(
+                return MenuWidget.menuProductWidget(
                   context,
                   listPickupName[index],
                   listPrice1[index],
