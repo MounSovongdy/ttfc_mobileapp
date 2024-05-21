@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ttfc_app/screen/loginscreen/otp.dart';
 import 'package:ttfc_app/utility/constant.dart';
 import 'package:ttfc_app/widget/button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -11,8 +12,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  //final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   final TextEditingController _phoneController = TextEditingController();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 borderRadius: BorderRadius.circular(defaultCircular),
                 borderSide: const BorderSide(color: Colors.red, width: 2.0),
               ),
-              prefixIcon: const Icon(Icons.phone),
+              prefixIcon: const Icon(Icons.phone, color: bgColor,),
               contentPadding: const EdgeInsets.symmetric(
                 vertical: 20.0,
                 horizontal: 30.0,
@@ -115,3 +118,4 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ttfc_app/screen/homescreen/home.dart';
 import 'package:ttfc_app/screen/loginscreen/login.dart';
 
 class StartupScreen extends StatefulWidget {
@@ -30,6 +29,7 @@ class _StartupScreenState extends State<StartupScreen> {
     );
   }
 
+  @override
   Widget build (BuildContext context) {
     return Scaffold(
       body: buildBody(context),
@@ -40,7 +40,7 @@ class _StartupScreenState extends State<StartupScreen> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Center(
-        child: Container(
+        child: SizedBox(
           width: 300,
           height: 300,
           child: Image.asset('images/logo.png'),

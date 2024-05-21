@@ -204,7 +204,7 @@ class menuWidget {
                 const SizedBox(
                   width: 5,
                 ),
-                Stack(
+                Column(
                   children: [
                     SizedBox(
                       height: 106,
@@ -213,7 +213,7 @@ class menuWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            width: 120,
+                            width: 140,
                             height: 30,
                             child: Center(
                               child: Align(
@@ -223,7 +223,7 @@ class menuWidget {
                                   textAlign: TextAlign.start,
                                   style: const TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: fontDiscription,
+                                    fontSize: fontText,
                                     color: blackColor,
                                     overflow: TextOverflow.ellipsis,
                                   ),
@@ -291,48 +291,50 @@ class menuWidget {
                         ],
                       ),
                     ),
-                    Positioned(
-                      top: 0,
-                      right: 0,
-                      child: Container(
-                        width: 120,
-                        height: 30,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(defaultCircular),
-                            topRight: Radius.circular(defaultPadding),
-                          ),
-                          color: bgColor,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              txtPrice,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: fontText,
-                                color: whiteColor,
-                              ),
-                            ),
-                            const SizedBox(width: 5),
-                            const Text(
-                              'USD',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: fontDiscription,
-                                color: secondGrayColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
                   ],
                 ),
               ],
             ),
           ),
+          // Price Label.
+          Positioned(
+            top: 0,
+            right: 0,
+            child: Container(
+              width: 120,
+              height: 30,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(defaultCircular),
+                  topRight: Radius.circular(defaultPadding),
+                ),
+                color: bgColor,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    txtPrice,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: fontText,
+                      color: whiteColor,
+                    ),
+                  ),
+                  const SizedBox(width: 5),
+                  const Text(
+                    'USD',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: fontDiscription,
+                      color: secondGrayColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          // Edit Button.
           Positioned(
             right: 8,
             bottom: 8,

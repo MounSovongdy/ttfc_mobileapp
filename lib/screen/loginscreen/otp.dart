@@ -94,6 +94,26 @@ class _OTPScreenState extends State<OTPScreen> {
               },
             ),
           ),
+          const SizedBox(
+            height: defaultPadding * 4,
+          ),
+          const Text(
+            'Did you receive any code?',
+            style: TextStyle(
+              fontSize: fontDiscription,
+            ),
+          ),
+          TextButton(
+            onPressed: () {},
+            child: const Text(
+              'Resend New Code',
+              style: TextStyle(
+                fontSize: fontDiscription,
+                fontWeight: FontWeight.bold,
+                color: bgColor,
+              ),
+            ),
+          ),
         ],
       ),
     );

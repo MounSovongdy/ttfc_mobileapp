@@ -126,4 +126,40 @@ class SettingWidget {
       ],
     );
   }
+
+  static Widget widget3(
+    String txttitle,
+    String txtdiscr,
+  ) {
+    return Row(
+      children: [
+        SizedBox(
+          width: 100,
+          height: 40,
+          //color: bgColor,
+          child: Center(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(txttitle),
+            ),
+          ),
+        ),
+        const SizedBox(
+          width: 5,
+        ),
+        SizedBox(
+          width: 311,
+          height: 40,
+          child: Center(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(txtdiscr,style: const TextStyle(
+                overflow: TextOverflow.clip,
+              ),),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }
