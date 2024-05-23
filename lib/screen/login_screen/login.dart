@@ -15,7 +15,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  //final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.all(defaultPadding * 2),
               child: TextFieldWidget.phoneTextField(
                 "Phone Number",
-                "+855",
+                "+855 | ",
                 "xx xxx xxx",
                 controller: phoneController,
                 icon: const Icon(Icons.phone),
