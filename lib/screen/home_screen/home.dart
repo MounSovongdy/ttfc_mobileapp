@@ -37,6 +37,8 @@ class HomeScreen extends StatelessWidget {
   final listBrand1 = ["TOYOTA", "TOYOTA"];
   final listYear1 = ["2024", "2024"];
 
+  bool isFavorite = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,7 +103,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 245.0,
+            height: 230.0,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -114,6 +116,7 @@ class HomeScreen extends StatelessWidget {
                   listBrand[index],
                   listYear[index],
                   image: listSUVImg[index],
+                  isLike: isFavorite,
                   onTap: () {
                     Navigator.push(
                       context,
@@ -147,7 +150,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 245.0,
+            height: 230.0,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -160,6 +163,7 @@ class HomeScreen extends StatelessWidget {
                   listBrand1[index],
                   listYear1[index],
                   image: listPickupImg[index],
+                  isLike: isFavorite,
                   onTap: () {
                     Navigator.push(
                       context,

@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:ttfc_app/style/constant.dart';
 
@@ -14,51 +15,57 @@ class AdditionalWidget {
           child: Row(
             children: [
               const SizedBox(width: 5),
-              Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(defaultPadding),
-                  color: mainColor,
+              Expanded(
+                flex: 1,
+                child: Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(defaultPadding),
+                    color: mainColor,
+                  ),
+                  child: icon,
                 ),
-                child: icon,
               ),
               const SizedBox(width: 20),
-              Container(
-                height: 50,
-                width: 333,
-                decoration: const BoxDecoration(
+              Expanded(
+                flex: 7,
+                child: Container(
+                  height: 50,
+                  decoration: const BoxDecoration(
                     border: Border(
-                  bottom: BorderSide(
-                    width: 1,
-                    color: secondGrayColor,
+                      bottom: BorderSide(
+                        width: 1,
+                        color: secondGrayColor,
+                      ),
+                    ),
                   ),
-                )),
-                child: Row(
-                  children: [
-                    InkWell(
-                      onTap: onTap,
-                      child: SizedBox(
-                        height: 50,
-                        width: 292,
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            txtName,
-                            style: const TextStyle(
-                              fontSize: fontText,
-                              fontWeight: FontWeight.bold,
+                  child: Row(
+                    children: [
+                      InkWell(
+                        onTap: onTap,
+                        child: SizedBox(
+                          height: 50,
+                          //width: 292,
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              txtName,
+                              style: const TextStyle(
+                                fontSize: fontText,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    const Spacer(),
-                    const Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      size: 20,
-                    ),
-                  ],
+                      const Spacer(),
+                      const Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 20,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -69,61 +76,63 @@ class AdditionalWidget {
   }
 
   static Widget widget2(
+      BuildContext context,
     String txtName, {
     required onTap,
     icon,
   }) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 60,
-          child: Row(
-            children: [
-              const SizedBox(width: 5),
-              Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(defaultPadding),
-                  color: mainColor,
-                ),
-                child: icon,
+    return SizedBox(
+      height: 60,
+      child: Row(
+        children: [
+          const SizedBox(width: 5),
+          Expanded(
+            flex: 1,
+            child: Container(
+              height: 40,
+              width: 40,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(defaultPadding),
+                color: mainColor,
               ),
-              const SizedBox(width: 20),
-              SizedBox(
-                height: 50,
-                width: 333,
-                child: Row(
-                  children: [
-                    InkWell(
-                      onTap: onTap,
-                      child: SizedBox(
-                        height: 50,
-                        width: 292,
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            txtName,
-                            style: const TextStyle(
-                              fontSize: fontText,
-                              fontWeight: FontWeight.bold,
-                            ),
+              child: icon,
+            ),
+          ),
+          const SizedBox(width: 20),
+          Expanded(
+            flex: 7,
+            child: SizedBox(
+              height: 50,
+              child: Row(
+                children: [
+                  InkWell(
+                    onTap: onTap,
+                    child: SizedBox(
+                      height: 50,
+                      //width: 292,
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          txtName,
+                          style: const TextStyle(
+                            fontSize: fontText,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                     ),
-                    const Spacer(),
-                    const Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      size: 20,
-                    ),
-                  ],
-                ),
+                  ),
+                  const Spacer(),
+                  const Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    size: 20,
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -153,9 +162,12 @@ class AdditionalWidget {
           child: Center(
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Text(txtdiscr,style: const TextStyle(
-                overflow: TextOverflow.clip,
-              ),),
+              child: Text(
+                txtdiscr,
+                style: const TextStyle(
+                  overflow: TextOverflow.clip,
+                ),
+              ),
             ),
           ),
         ),

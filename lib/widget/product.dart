@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:ttfc_app/style/constant.dart';
 
 class MenuWidget {
@@ -30,7 +32,7 @@ class MenuWidget {
                 ),
               ),
             ),
-            onTap: (){},
+            onTap: () {},
           ),
           const SizedBox(
             height: 5,
@@ -51,17 +53,18 @@ class MenuWidget {
     String txtModel,
     String txtPrice,
     String txtBrand,
-      String txtYear,{
+    String txtYear, {
     Color? backgroundColor = whiteColor,
     required String image,
     required onTap,
+    required isLike,
   }) {
     return InkWell(
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.all(defaultPadding),
         child: Container(
-          width: MediaQuery.of(context).size.width / 1.5,
+          width: MediaQuery.of(context).size.width / 1.7,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(defaultCircular),
             color: whiteColor,
@@ -69,7 +72,7 @@ class MenuWidget {
           child: Stack(
             children: [
               Container(
-                width: MediaQuery.of(context).size.width / 1.5,
+                width: MediaQuery.of(context).size.width / 1.7,
                 height: 160.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(defaultCircular),
@@ -81,81 +84,118 @@ class MenuWidget {
                 ),
               ),
               Positioned(
-                bottom: 10,
+                top: 0,
                 left: 0,
-                right: 0,
                 child: Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: defaultPadding * 2),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  width: 90,
+                  height: 20,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(defaultCircular),
+                      topLeft: Radius.circular(defaultPadding),
+                    ),
+                    color: mainColor,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            txtModel,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: fontDiscription,
-                            ),
-                          ),
-                          const Spacer(),
-                          Text(
-                            txtPrice,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: fontText,
-                              color: mainColor,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            'USD',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: fontDiscription,
-                              color: blackColor.withOpacity(0.5),
-                            ),
-                          ),
-                        ],
+                      Text(
+                        txtPrice,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: fontDiscription,
+                          color: whiteColor,
+                        ),
                       ),
-                      Row(
-                        children: [
-                          Text(
-                            txtBrand,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: fontDiscription,
-                              color: blackColor.withOpacity(0.5),
-                            ),
-                          ),
-                          const SizedBox(width: 5,),
-                          Text(
-                            txtYear,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: fontDiscription,
-                              color: blackColor.withOpacity(0.5),
-                            ),
-                          ),
-                        ],
+                      const SizedBox(width: 5),
+                      const Text(
+                        'USD',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: fontUSD,
+                          color: secondGrayColor,
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
               Positioned(
-                right: 1,
-                top: 0,
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.favorite_rounded,
-                    color: mainColor,
+                bottom: 10,
+                left: 0,
+                right: 0,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: defaultPadding * 2,
                   ),
-                  onPressed: () {},
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              flex: 5,
+                              child: SizedBox(
+                                height: 20,
+                                child: Text(
+                                  txtModel,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: fontDiscription,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              txtBrand,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: fontUSD,
+                                color: blackColor.withOpacity(0.5),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              txtYear,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: fontUSD,
+                                color: blackColor.withOpacity(0.5),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ]),
+                ),
+              ),
+              Positioned(
+                right: 3,
+                top: 3,
+                child: InkWell(
+                  child: Container(
+                    height: 28,
+                    width: 28,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: secondGrayColor,
+                    ),
+                    child: Icon(
+                      isLike ? Icons.favorite_rounded : Icons.favorite_border,
+                      color: mainColor,
+                      size: iconSize,
+                    ),
+                  ),
+                  onTap: () {
+                    isLike = !isLike;
+                  },
                 ),
               ),
             ],
@@ -181,115 +221,120 @@ class MenuWidget {
         children: [
           Container(
             padding: const EdgeInsets.all(defaultPadding),
-            height: 122,
+            height: 96,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(defaultCircular),
               color: whiteColor,
             ),
             child: Row(
               children: [
-                Container(
-                  height: 106,
-                  width: 140,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(defaultCircular),
-                    color: whiteColor,
-                    image: DecorationImage(
-                      image: AssetImage(image),
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    height: 106,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(defaultCircular),
+                      color: whiteColor,
+                      image: DecorationImage(
+                        image: AssetImage(image),
+                      ),
                     ),
                   ),
                 ),
                 const SizedBox(
                   width: 5,
                 ),
-                Column(
-                  children: [
-                    SizedBox(
-                      height: 106,
-                      width: 253,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: 140,
-                            height: 30,
-                            child: Center(
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  txtModel,
-                                  textAlign: TextAlign.start,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: fontText,
-                                    color: blackColor,
-                                    overflow: TextOverflow.ellipsis,
+                Expanded(
+                  flex: 7,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 80,
+                        width: 253,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 160,
+                              height: 15,
+                              child: Center(
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    txtModel,
+                                    textAlign: TextAlign.start,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: fontDiscription,
+                                      color: blackColor,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                          const SizedBox(height: defaultPadding),
-                          SizedBox(
-                            width: 120,
-                            height: 15,
-                            child: Center(
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  txtBrand,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: fontDiscription,
-                                    color: grayColor,
-                                    overflow: TextOverflow.ellipsis,
+                            const SizedBox(height: defaultPadding),
+                            SizedBox(
+                              width: 120,
+                              height: 12,
+                              child: Center(
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    txtBrand,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: fontUSD,
+                                      color: grayColor,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                          const SizedBox(height: defaultPadding),
-                          SizedBox(
-                            width: 120,
-                            height: 15,
-                            child: Center(
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  txtYear,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: fontDiscription,
-                                    color: grayColor,
-                                    overflow: TextOverflow.ellipsis,
+                            const SizedBox(height: defaultPadding),
+                            SizedBox(
+                              width: 120,
+                              height: 12,
+                              child: Center(
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    txtYear,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: fontUSD,
+                                      color: grayColor,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                          const SizedBox(height: defaultPadding),
-                          SizedBox(
-                            width: 120,
-                            height: 15,
-                            child: Center(
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  dateSub,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: fontDiscription,
-                                    color: grayColor,
-                                    overflow: TextOverflow.ellipsis,
+                            const SizedBox(height: defaultPadding),
+                            SizedBox(
+                              width: 120,
+                              height: 12,
+                              child: Center(
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    dateSub,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: fontUSD,
+                                      color: grayColor,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -299,8 +344,8 @@ class MenuWidget {
             top: 0,
             right: 0,
             child: Container(
-              width: 120,
-              height: 30,
+              width: 90,
+              height: 25,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(defaultCircular),
@@ -315,7 +360,7 @@ class MenuWidget {
                     txtPrice,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: fontText,
+                      fontSize: fontDiscription,
                       color: whiteColor,
                     ),
                   ),
@@ -324,7 +369,7 @@ class MenuWidget {
                     'USD',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: fontDiscription,
+                      fontSize: fontUSD,
                       color: secondGrayColor,
                     ),
                   ),
@@ -347,7 +392,7 @@ class MenuWidget {
                 child: const Icon(
                   Icons.edit_document,
                   color: mainColor,
-                  size: 18,
+                  size: iconSize,
                 ),
               ),
               onTap: () {},

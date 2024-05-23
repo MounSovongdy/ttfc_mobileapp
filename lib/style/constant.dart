@@ -5,8 +5,9 @@ const defaultCircular =12.0;
 const fontTitle = 24.0;
 const fontText = 18.0;
 const fontDiscription = 14.0;
+const fontUSD = 10.0;
 const dialogBackground = 0.9;
-const iconSize = 32.0;
+const iconSize = 18.0;
 
 const mainColor = Color(0xFF1f51ad);
 const primaryColor = Color(0xFFD4AF37);

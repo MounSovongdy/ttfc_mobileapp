@@ -1,5 +1,8 @@
-import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:ttfc_app/screen/login_screen/login.dart';
 import 'package:ttfc_app/style/constant.dart';
 import 'package:ttfc_app/widget/appbar.dart';
 import 'package:ttfc_app/widget/button.dart';
@@ -32,16 +35,18 @@ class AccountScreen extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  Container(
-                    height: 62,
-                    width: 62,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: rejectColor,
-                      image: const DecorationImage(
-                        fit: BoxFit.fill,
-                        image: AssetImage(
-                          'images/profile.jpeg',
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      height: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: rejectColor,
+                        image: const DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage(
+                            'images/profile.jpeg',
+                          ),
                         ),
                       ),
                     ),
@@ -49,43 +54,48 @@ class AccountScreen extends StatelessWidget {
                   const SizedBox(
                     width: 5,
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(defaultPadding),
-                    height: 62,
-                    width: 260,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(defaultPadding),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Toyota Cambodia',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: fontText,
-                            color: blackColor,
-                            overflow: TextOverflow.ellipsis,
+                  Expanded(
+                    flex: 8,
+                    child: Container(
+                      padding: const EdgeInsets.all(defaultPadding),
+                      height: 62,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(defaultPadding),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Toyota Cambodia',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: fontText,
+                              color: blackColor,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
-                        ),
-                        Text(
-                          '089 999 642',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: fontDiscription,
-                            color: blackColor.withOpacity(0.3),
-                            overflow: TextOverflow.ellipsis,
+                          Text(
+                            '089 999 642',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: fontDiscription,
+                              color: blackColor.withOpacity(0.3),
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   const Spacer(),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.arrow_forward_ios_rounded),
-                    color: mainColor,
+                  Expanded(
+                    flex: 1,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.arrow_forward_ios_rounded),
+                      color: mainColor,
+                    ),
                   ),
                 ],
               ),
@@ -118,6 +128,7 @@ class AccountScreen extends StatelessWidget {
                     onTap: () {},
                   ),
                   AdditionalWidget.widget2(
+                    context,
                     'Favorite',
                     icon: const Icon(
                       Icons.favorite_rounded,
@@ -156,6 +167,7 @@ class AccountScreen extends StatelessWidget {
                     onTap: () {},
                   ),
                   AdditionalWidget.widget2(
+                    context,
                     'About Me',
                     icon: const Icon(
                       Icons.info_rounded,
@@ -181,11 +193,23 @@ class AccountScreen extends StatelessWidget {
               'Log Out',
               textColor: mainColor.withOpacity(0.8),
               backgroundColor: whiteColor,
-              onTap: () => exit(0),
+              onTap: () => _signOut(context),
             ),
           ),
         ],
       ),
     );
+  }
+
+  void _signOut(BuildContext context)  async {
+    await FirebaseAuth.instance.signOut().then((value) {
+      debugPrint('User is signed out success.');
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const LoginScreen(),
+        ),
+      );
+    });
   }
 }
