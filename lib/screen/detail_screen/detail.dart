@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:ttfc_app/screen/quote_screen/reqoute.dart';
 import 'package:ttfc_app/style/constant.dart';
 import 'package:ttfc_app/widget/appbar.dart';
 import 'package:ttfc_app/widget/bottombar.dart';
 import 'package:ttfc_app/widget/slider.dart';
-import 'package:ttfc_app/widget/additionalwidget.dart';
+import 'package:ttfc_app/widget/additionalWidget.dart';
 
 class DetailScreen extends StatefulWidget {
   final String carName;
@@ -38,9 +39,18 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroudAppColor,
-      appBar: AppbarWidget.secondAppbar(context),
+      appBar: AppbarWidget.secondAppbar(context, 'Details'),
       body: buildBody(context),
-      bottomNavigationBar: BottomBarWidget.temporaryBottomBar(),
+      bottomNavigationBar: BottomBarWidget.temporaryBottomBar(
+        onTap: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const RequestQuote(),
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -119,7 +129,7 @@ class _DetailScreenState extends State<DetailScreen> {
               height: defaultPadding,
             ),
             Container(
-              height: 80.0,
+              height: 60.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(defaultCircular),
                 color: whiteColor,
@@ -127,37 +137,26 @@ class _DetailScreenState extends State<DetailScreen> {
               child: Row(
                 children: [
                   Expanded(
-                    child: Container(),
-                  ),
+                      child: AdditionalWidget.widget6('103', 'Horsepower')),
                   Container(
                     width: 1,
                     color: secondGrayColor,
                   ),
-                  Expanded(
-                    child: Container(),
-                  ),
+                  Expanded(child: AdditionalWidget.widget6('136Nm', 'Torque')),
                   Container(
                     width: 1,
                     color: secondGrayColor,
                   ),
-                  Expanded(
-                    child: Container(),
-                  ),
+                  Expanded(child: AdditionalWidget.widget6('1.5L', 'Engine')),
                 ],
               ),
             ),
             const SizedBox(
-              height: defaultPadding * 2,
+              height: defaultPadding * 3,
             ),
+            AdditionalWidget.widget5('Electric Specifications'),
             const SizedBox(
-              height: 30.0,
-              child: Text(
-                'Electric Specifications',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: fontText,
-                ),
-              ),
+              height: defaultPadding * 2,
             ),
             Container(
               decoration: BoxDecoration(
@@ -202,14 +201,18 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   if (_isExpanded) ...[
                     Padding(
-                      padding: const EdgeInsets.all(defaultPadding),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: defaultPadding),
                       child: Column(
                         children: [
-                          AdditionalWidget.widget3('Engine type', '1.5 L, 4-cylinder gasoline, in-line, 16-valve DOHV Chain Drive with Dual VVT-i'),
+                          AdditionalWidget.widget3('Engine type',
+                              '1.5L, 4-cylinder gasoline, in-line, 16-valve DOHV Chain Drive with Dual VVT-i'),
                           AdditionalWidget.widget3('Transmission', 'CVT'),
                           AdditionalWidget.widget3('Displacement', '1,496 cc'),
-                          AdditionalWidget.widget3('Maximum output', '91 HP (67 kW) @ 5,500 RPM'),
-                          AdditionalWidget.widget3('Maximum torque', '121 Nm @ 4,800 RPM'),
+                          AdditionalWidget.widget3(
+                              'Maximum output', '91 HP (67 kW) @ 5,500 RPM'),
+                          AdditionalWidget.widget3(
+                              'Maximum torque', '121 Nm @ 4,800 RPM'),
                         ],
                       ),
                     ),
@@ -228,7 +231,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 children: [
                   Padding(
                     padding:
-                      const EdgeInsets.symmetric(horizontal: defaultPadding),
+                        const EdgeInsets.symmetric(horizontal: defaultPadding),
                     child: SizedBox(
                       height: 50,
                       child: Row(
@@ -261,14 +264,18 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   if (_isExpanded1) ...[
                     Padding(
-                      padding: const EdgeInsets.all(defaultPadding),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: defaultPadding),
                       child: Column(
                         children: [
-                          AdditionalWidget.widget3('Engine type', '1.5 L, 4-cylinder gasoline, in-line, 16-valve DOHV Chain Drive with Dual VVT-i'),
+                          AdditionalWidget.widget3('Engine type',
+                              '1.5L, 4-cylinder gasoline, in-line, 16-valve DOHV Chain Drive with Dual VVT-i'),
                           AdditionalWidget.widget3('Transmission', 'CVT'),
                           AdditionalWidget.widget3('Displacement', '1,496 cc'),
-                          AdditionalWidget.widget3('Maximum output', '91 HP (67 kW) @ 5,500 RPM'),
-                          AdditionalWidget.widget3('Maximum torque', '121 Nm @ 4,800 RPM'),
+                          AdditionalWidget.widget3(
+                              'Maximum output', '91 HP (67 kW) @ 5,500 RPM'),
+                          AdditionalWidget.widget3(
+                              'Maximum torque', '121 Nm @ 4,800 RPM'),
                         ],
                       ),
                     ),
@@ -320,14 +327,18 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   if (_isExpanded2) ...[
                     Padding(
-                      padding: const EdgeInsets.all(defaultPadding),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: defaultPadding),
                       child: Column(
                         children: [
-                          AdditionalWidget.widget3('Engine type', '1.5 L, 4-cylinder gasoline, in-line, 16-valve DOHV Chain Drive with Dual VVT-i'),
+                          AdditionalWidget.widget3('Engine type',
+                              '1.5L, 4-cylinder gasoline, in-line, 16-valve DOHV Chain Drive with Dual VVT-i'),
                           AdditionalWidget.widget3('Transmission', 'CVT'),
                           AdditionalWidget.widget3('Displacement', '1,496 cc'),
-                          AdditionalWidget.widget3('Maximum output', '91 HP (67 kW) @ 5,500 RPM'),
-                          AdditionalWidget.widget3('Maximum torque', '121 Nm @ 4,800 RPM'),
+                          AdditionalWidget.widget3(
+                              'Maximum output', '91 HP (67 kW) @ 5,500 RPM'),
+                          AdditionalWidget.widget3(
+                              'Maximum torque', '121 Nm @ 4,800 RPM'),
                         ],
                       ),
                     ),
@@ -379,14 +390,18 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   if (_isExpanded3) ...[
                     Padding(
-                      padding: const EdgeInsets.all(defaultPadding),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: defaultPadding),
                       child: Column(
                         children: [
-                          AdditionalWidget.widget3('Engine type', '1.5 L, 4-cylinder gasoline, in-line, 16-valve DOHV Chain Drive with Dual VVT-i'),
+                          AdditionalWidget.widget3('Engine type',
+                              '1.5L, 4-cylinder gasoline, in-line, 16-valve DOHV Chain Drive with Dual VVT-i'),
                           AdditionalWidget.widget3('Transmission', 'CVT'),
                           AdditionalWidget.widget3('Displacement', '1,496 cc'),
-                          AdditionalWidget.widget3('Maximum output', '91 HP (67 kW) @ 5,500 RPM'),
-                          AdditionalWidget.widget3('Maximum torque', '121 Nm @ 4,800 RPM'),
+                          AdditionalWidget.widget3(
+                              'Maximum output', '91 HP (67 kW) @ 5,500 RPM'),
+                          AdditionalWidget.widget3(
+                              'Maximum torque', '121 Nm @ 4,800 RPM'),
                         ],
                       ),
                     ),
@@ -438,14 +453,18 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   if (_isExpanded4) ...[
                     Padding(
-                      padding: const EdgeInsets.all(defaultPadding),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: defaultPadding),
                       child: Column(
                         children: [
-                          AdditionalWidget.widget3('Engine type', '1.5 L, 4-cylinder gasoline, in-line, 16-valve DOHV Chain Drive with Dual VVT-i'),
+                          AdditionalWidget.widget3('Engine type',
+                              '1.5 L, 4-cylinder gasoline, in-line, 16-valve DOHV Chain Drive with Dual VVT-i'),
                           AdditionalWidget.widget3('Transmission', 'CVT'),
                           AdditionalWidget.widget3('Displacement', '1,496 cc'),
-                          AdditionalWidget.widget3('Maximum output', '91 HP (67 kW) @ 5,500 RPM'),
-                          AdditionalWidget.widget3('Maximum torque', '121 Nm @ 4,800 RPM'),
+                          AdditionalWidget.widget3(
+                              'Maximum output', '91 HP (67 kW) @ 5,500 RPM'),
+                          AdditionalWidget.widget3(
+                              'Maximum torque', '121 Nm @ 4,800 RPM'),
                         ],
                       ),
                     ),
@@ -497,14 +516,18 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   if (_isExpanded5) ...[
                     Padding(
-                      padding: const EdgeInsets.all(defaultPadding),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: defaultPadding),
                       child: Column(
                         children: [
-                          AdditionalWidget.widget3('Engine type', '1.5 L, 4-cylinder gasoline, in-line, 16-valve DOHV Chain Drive with Dual VVT-i'),
+                          AdditionalWidget.widget3('Engine type',
+                              '1.5L, 4-cylinder gasoline, in-line, 16-valve DOHV Chain Drive with Dual VVT-i'),
                           AdditionalWidget.widget3('Transmission', 'CVT'),
                           AdditionalWidget.widget3('Displacement', '1,496 cc'),
-                          AdditionalWidget.widget3('Maximum output', '91 HP (67 kW) @ 5,500 RPM'),
-                          AdditionalWidget.widget3('Maximum torque', '121 Nm @ 4,800 RPM'),
+                          AdditionalWidget.widget3(
+                              'Maximum output', '91 HP (67 kW) @ 5,500 RPM'),
+                          AdditionalWidget.widget3(
+                              'Maximum torque', '121 Nm @ 4,800 RPM'),
                         ],
                       ),
                     ),
@@ -556,14 +579,18 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   if (_isExpanded6) ...[
                     Padding(
-                      padding: const EdgeInsets.all(defaultPadding),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: defaultPadding),
                       child: Column(
                         children: [
-                          AdditionalWidget.widget3('Engine type', '1.5 L, 4-cylinder gasoline, in-line, 16-valve DOHV Chain Drive with Dual VVT-i'),
+                          AdditionalWidget.widget3('Engine type',
+                              '1.5L, 4-cylinder gasoline, in-line, 16-valve DOHV Chain Drive with Dual VVT-i'),
                           AdditionalWidget.widget3('Transmission', 'CVT'),
                           AdditionalWidget.widget3('Displacement', '1,496 cc'),
-                          AdditionalWidget.widget3('Maximum output', '91 HP (67 kW) @ 5,500 RPM'),
-                          AdditionalWidget.widget3('Maximum torque', '121 Nm @ 4,800 RPM'),
+                          AdditionalWidget.widget3(
+                              'Maximum output', '91 HP (67 kW) @ 5,500 RPM'),
+                          AdditionalWidget.widget3(
+                              'Maximum torque', '121 Nm @ 4,800 RPM'),
                         ],
                       ),
                     ),

@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ttfc_app/style/constant.dart';
 
 class MenuWidget {
@@ -41,6 +39,7 @@ class MenuWidget {
             txtName,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
+              color: mainColor,
             ),
           ),
         ],
@@ -57,7 +56,8 @@ class MenuWidget {
     Color? backgroundColor = whiteColor,
     required String image,
     required onTap,
-    required isLike,
+        required onTap1,
+    bool isLike = false,
   }) {
     return InkWell(
       onTap: onTap,
@@ -177,9 +177,10 @@ class MenuWidget {
                 ),
               ),
               Positioned(
-                right: 3,
-                top: 3,
+                right: 15,
+                bottom: 15,
                 child: InkWell(
+                  onTap: onTap1,
                   child: Container(
                     height: 28,
                     width: 28,
@@ -193,9 +194,6 @@ class MenuWidget {
                       size: iconSize,
                     ),
                   ),
-                  onTap: () {
-                    isLike = !isLike;
-                  },
                 ),
               ),
             ],

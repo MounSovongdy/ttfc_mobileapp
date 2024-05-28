@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:ttfc_app/screen/detail_screen/detail.dart';
 import 'package:ttfc_app/style/constant.dart';
+import 'package:ttfc_app/widget/additionalWidget.dart';
 import 'package:ttfc_app/widget/appbar.dart';
 import 'package:ttfc_app/widget/product.dart';
 import 'package:ttfc_app/widget/slider.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   final listCategoryName = [
     "TOYOTA",
     "LEXUS",
@@ -16,6 +22,7 @@ class HomeScreen extends StatelessWidget {
     "TOYOTA",
     "LEXUS"
   ];
+
   final listCategoryImg = [
     "images/toyota.png",
     "images/lexus.png",
@@ -30,7 +37,6 @@ class HomeScreen extends StatelessWidget {
   final listPrice = ["37900", "39900"];
   final listBrand = ["TOYOTA", "TOYOTA"];
   final listYear = ["2024", "2023"];
-
   final listPickupName = ["HILUX REVO", "YARIS CROSS HEV"];
   final listPickupImg = ["images/car_pickup.png", "images/car_pickup1.png"];
   final listPrice1 = ["39900", "40000"];
@@ -62,16 +68,9 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: defaultPadding),
-            child: Text(
-              'Category',
-              textAlign: TextAlign.right,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: fontText,
-              ),
-            ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+            child: AdditionalWidget.widget5('Category'),
           ),
           SizedBox(
             height: 130.0,
@@ -89,64 +88,56 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: defaultPadding * 2,
+            height: defaultPadding,
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: defaultPadding),
-            child: Text(
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+            child: AdditionalWidget.widget4(
               'SUV',
-              textAlign: TextAlign.right,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: fontText,
-              ),
+              onPressed: () {},
             ),
           ),
           SizedBox(
             height: 230.0,
             child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: listSUVName.length,
-              itemBuilder: (context, index) {
-                return MenuWidget.menuProductWidget(
-                  context,
-                  listSUVName[index],
-                  listPrice[index],
-                  listBrand[index],
-                  listYear[index],
-                  image: listSUVImg[index],
-                  isLike: isFavorite,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetailScreen(
-                          carName: listSUVName[index],
-                          carPrice: listPrice[index],
-                          carBrand: listBrand[index],
-                          carYear: listYear[index],
-                          carImg: listSUVImg[index],
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: listSUVName.length,
+                itemBuilder: (context, index) {
+                  return MenuWidget.menuProductWidget(
+                    context,
+                    listSUVName[index],
+                    listPrice[index],
+                    listBrand[index],
+                    listYear[index],
+                    image: listSUVImg[index],
+                    isLike: isFavorite,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailScreen(
+                            carName: listSUVName[index],
+                            carPrice: listPrice[index],
+                            carBrand: listBrand[index],
+                            carYear: listYear[index],
+                            carImg: listSUVImg[index],
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                );
-              },
-            ),
+                      );
+                    },
+                    onTap1: null,
+                  );
+                }),
           ),
           const SizedBox(
             height: defaultPadding * 2,
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: defaultPadding),
-            child: Text(
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+            child: AdditionalWidget.widget4(
               'Pick Up',
-              textAlign: TextAlign.right,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: fontText,
-              ),
+              onPressed: () {},
             ),
           ),
           SizedBox(
@@ -178,6 +169,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     );
                   },
+                  onTap1: null,
                 );
               },
             ),

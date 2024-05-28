@@ -1,12 +1,19 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:ttfc_app/screen/login_screen/otp.dart';
 import 'package:ttfc_app/style/constant.dart';
-import 'package:ttfc_app/style/textfield_controllar.dart';
+import 'package:ttfc_app/style/textField_controller.dart';
 import 'package:ttfc_app/widget/button.dart';
-import 'package:ttfc_app/widget/textfield.dart';
+import 'package:ttfc_app/widget/textField.dart';
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +77,15 @@ class RegisterScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(defaultPadding),
               child: TextFieldWidget.simTextField(
+                "Email",
+                controller: emailController,
+                icon: const Icon(Icons.email_rounded),
+                keyboardtype: TextInputType.emailAddress,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(defaultPadding),
+              child: TextFieldWidget.simTextField(
                 "Password",
                 controller: passController,
                 icon: const Icon(Icons.key_rounded),
@@ -92,17 +108,29 @@ class RegisterScreen extends StatelessWidget {
               padding: const EdgeInsets.all(defaultPadding),
               child: ButtonWidget.submitButton1(
                 icon: const Icon(
-                  Icons.skip_next_rounded,
+                  Icons.done,
                   size: 20,
                   color: whiteColor,
                 ),
-                'Done',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const OTPScreen(verificationId: ''),
-                    ),
+                "Submitted",
+                onTap: () async {
+                  await users.add({
+                    'userId': '',
+                    'userName': nameController.text,
+                    'tel': '+855${phoneControllerRegis.text}',
+                    'email' : emailController.text,
+                    'password': passController.text,
+                    'cpassword': conController.text,
+                  }).then(
+                    (value) {
+                      debugPrint('Added');
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => const OTPScreen(verificationId: ''),
+                      //   ),
+                      // );
+                    },
                   );
                 },
               ),

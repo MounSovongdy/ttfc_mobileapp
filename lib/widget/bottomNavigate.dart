@@ -19,7 +19,7 @@ class _BottomNavigationBarExampleState
   @override
   Widget build(BuildContext context) {
     final kTabPages = <Widget>[
-      HomeScreen(),
+      const HomeScreen(),
       const SearchScreen(),
       const QuotationScreen(),
       const AccountScreen(),

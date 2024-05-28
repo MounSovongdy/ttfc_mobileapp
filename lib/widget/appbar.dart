@@ -26,38 +26,6 @@ class AppbarWidget {
     );
   }
 
-  static AppBar secondAppbar(BuildContext context) {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      leading: IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: const Icon(
-          Icons.arrow_back_ios,
-        ),
-        color: mainColor,
-      ),
-      title: Row(
-        children: [
-          const Spacer(),
-          Container(
-            width: 30.0,
-            height: 30.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: mainColor,
-            ),
-            child: Center(
-              child: Image.asset('images/profile.jpeg'),
-            ),
-          ),
-        ],
-      ),
-      backgroundColor: whiteColor,
-    );
-  }
-
   static AppBar additionalAppbar(
     BuildContext context,
     String txtLable,
@@ -75,6 +43,30 @@ class AppbarWidget {
         ),
       ),
       backgroundColor: backgroudAppColor,
+    );
+  }
+
+  static AppBar secondAppbar(BuildContext context,String txtLable,) {
+    return AppBar(
+      automaticallyImplyLeading: false,
+      leading: IconButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: const Icon(
+          Icons.arrow_back_ios,
+        ),
+        color: mainColor,
+      ),
+      title: Text(
+        txtLable,
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: fontTitle,
+          color: mainColor,
+        ),
+      ),
+      backgroundColor: whiteColor,
     );
   }
 }

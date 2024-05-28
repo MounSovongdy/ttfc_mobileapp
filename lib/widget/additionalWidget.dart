@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:ttfc_app/style/constant.dart';
 
@@ -11,15 +10,14 @@ class AdditionalWidget {
     return Column(
       children: [
         SizedBox(
-          height: 60,
+          height: 50,
           child: Row(
             children: [
               const SizedBox(width: 5),
               Expanded(
                 flex: 1,
                 child: Container(
-                  height: 40,
-                  width: 40,
+                  height: 30,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(defaultPadding),
                     color: mainColor,
@@ -29,9 +27,9 @@ class AdditionalWidget {
               ),
               const SizedBox(width: 20),
               Expanded(
-                flex: 7,
+                flex: 9,
                 child: Container(
-                  height: 50,
+                  height: 40,
                   decoration: const BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
@@ -46,13 +44,12 @@ class AdditionalWidget {
                         onTap: onTap,
                         child: SizedBox(
                           height: 50,
-                          //width: 292,
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
                               txtName,
                               style: const TextStyle(
-                                fontSize: fontText,
+                                fontSize: fontDiscription,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -62,7 +59,8 @@ class AdditionalWidget {
                       const Spacer(),
                       const Icon(
                         Icons.arrow_forward_ios_rounded,
-                        size: 20,
+                        size: iconSize,
+                        color: secondGrayColor,
                       ),
                     ],
                   ),
@@ -76,21 +74,20 @@ class AdditionalWidget {
   }
 
   static Widget widget2(
-      BuildContext context,
+    BuildContext context,
     String txtName, {
     required onTap,
     icon,
   }) {
     return SizedBox(
-      height: 60,
+      height: 50,
       child: Row(
         children: [
           const SizedBox(width: 5),
           Expanded(
             flex: 1,
             child: Container(
-              height: 40,
-              width: 40,
+              height: 30,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(defaultPadding),
                 color: mainColor,
@@ -100,22 +97,21 @@ class AdditionalWidget {
           ),
           const SizedBox(width: 20),
           Expanded(
-            flex: 7,
+            flex: 9,
             child: SizedBox(
-              height: 50,
+              height: 40,
               child: Row(
                 children: [
                   InkWell(
                     onTap: onTap,
                     child: SizedBox(
-                      height: 50,
-                      //width: 292,
+                      height: 40,
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           txtName,
                           style: const TextStyle(
-                            fontSize: fontText,
+                            fontSize: fontDiscription,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -125,7 +121,8 @@ class AdditionalWidget {
                   const Spacer(),
                   const Icon(
                     Icons.arrow_forward_ios_rounded,
-                    size: 20,
+                    size: iconSize,
+                    color: secondGrayColor,
                   ),
                 ],
               ),
@@ -137,38 +134,113 @@ class AdditionalWidget {
   }
 
   static Widget widget3(
-    String txttitle,
-    String txtdiscr,
+    String txtTittle,
+    String txtDis,
   ) {
     return Row(
       children: [
-        SizedBox(
-          width: 100,
-          height: 40,
-          //color: bgColor,
-          child: Center(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(txttitle),
+        Expanded(
+          flex: 2,
+          child: SizedBox(
+            width: 100,
+            height: 40,
+            //color: bgColor,
+            child: Center(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  txtTittle,
+                  style: const TextStyle(
+                    fontSize: fontUSD,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
           ),
         ),
+        const Text(' : '),
         const SizedBox(
           width: 5,
         ),
-        SizedBox(
-          width: 311,
-          height: 40,
-          child: Center(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                txtdiscr,
-                style: const TextStyle(
+        Expanded(
+          flex: 5,
+          child: SizedBox(
+            height: 40,
+            child: Center(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  txtDis,
+                  style: const TextStyle(fontSize: fontUSD),
                   overflow: TextOverflow.clip,
                 ),
               ),
             ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  static Widget widget4(
+    String txtTittle, {
+    required onPressed,
+  }) {
+    return Row(
+      children: [
+        Text(
+          txtTittle,
+          textAlign: TextAlign.right,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: fontText,
+          ),
+        ),
+        const Spacer(),
+        TextButton(
+          onPressed: onPressed,
+          child: Text(
+            'More...',
+            textAlign: TextAlign.right,
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: fontDiscription,
+                color: mainColor.withOpacity(0.8)),
+          ),
+        ),
+      ],
+    );
+  }
+
+  static Widget widget5(String txtTittle) {
+    return Text(
+      txtTittle,
+      textAlign: TextAlign.right,
+      style: const TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: fontText,
+      ),
+    );
+  }
+
+  static Widget widget6(String txtValue, String txtTittle) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          txtValue,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: fontDiscription,
+          ),
+        ),
+        const SizedBox(height: 5),
+        Text(
+          txtTittle,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: fontUSD,
           ),
         ),
       ],

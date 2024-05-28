@@ -1,11 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ttfc_app/screen/login_screen/otp.dart';
-import 'package:ttfc_app/screen/register_screen/register.dart';
 import 'package:ttfc_app/style/constant.dart';
-import 'package:ttfc_app/style/textfield_controllar.dart';
+import 'package:ttfc_app/style/textField_controller.dart';
 import 'package:ttfc_app/widget/button.dart';
-import 'package:ttfc_app/widget/textfield.dart';
+import 'package:ttfc_app/widget/textField.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -100,12 +99,12 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             TextButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const RegisterScreen(),
-                  ),
-                );
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => const RegisterScreen(),
+                //   ),
+                // );
               },
               child: const Text(
                 'Sign Up',
